@@ -1,0 +1,166 @@
+/*div.form-group.has-error > .tooltip > .tooltip-inner {
+    background-color: #F78B83;
+    color: #912323;
+    box-shadow: 0 0 0 1px #D95252;
+}
+
+div.form-group.has-error > .tooltip.in {
+      opacity:1;
+}
+
+div.form-group.has-error > .tooltip.top > .tooltip-arrow {
+    border-top-color: #F78B83;
+    } 
+div.form-group.has-error > .tooltip.right > .tooltip-arrow {
+    border-right-color: #F78B83;
+}
+div.form-group.has-error > .tooltip.bottom > .tooltip-arrow {
+    border-bottom-color: #F78B83;
+}
+div.form-group.has-error > .tooltip.left > .tooltip-arrow {
+    border-left-color: #F78B83;
+}*/
+
+.error{
+  border: 2px solid #ff3636;
+}
+
+.contadores{
+   font-size: 120px; 
+   font-family: arial; 
+   text-align: center; 
+   background-color: #ff3636;
+   width: 30%;
+}
+
+header{
+   /*background-attachment: fixed;*/
+}
+
+#header{
+  background: #000;
+  margin-left: 7%;
+  margin-right: 7%;
+  margin-top: 15px;"
+  position: fixed !important;
+}
+
+/* ------------------------------------------------------------------ */
+/* star Acordion                                                      JJ
+/* ------------------------------------------------------------------ */
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+/* ------------------------------------------------------------------ */
+/* end Acordion                                                       JJ
+/* ------------------------------------------------------------------ */
+
+
+
+/* ------------------------------------------------------------------ */
+/* e. Footer
+/* ------------------------------------------------------------------ */
+
+footer {
+
+	font: 14px/24px 'montserrat-regular', sans-serif;
+	background: #0f0f0f;
+   padding-top: 24px;
+   padding-bottom: 24px;
+   color: #303030; 
+   /*position: fixed !important;     */
+}
+
+
+footer a, footer a:visited { color: #525252; }
+footer a:hover, footer a:focus { color: #fff; }
+
+/* copyright */
+footer .copyright {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+ }
+footer .copyright li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    line-height: 24px;
+}
+.ie footer .copyright li {
+   display: inline;
+}
+footer .copyright li:before {
+    content: "\2022";
+    padding-left: 6px;
+    padding-right: 10px;
+    color: #1B6728;
+}
+footer .copyright  li:first-child:before {
+    display: none;
+}
+
+/* Go To Top Button */
+#go-top {
+	position: fixed;
+	bottom: 30px;
+   right: 30px;  
+   text-align: center; 
+   display: none;
+}
+#go-top a {
+	text-decoration: none;
+	border: 0 none;
+	display: block;
+	width: 48px;
+	height: 48px;
+	background-color: #303030;
+
+	-webkit-transition: all 0.2s ease-in-out;
+   -moz-transition: all 0.2s ease-in-out;
+   -o-transition: all 0.2s ease-in-out;
+   -ms-transition: all 0.2s ease-in-out;
+   transition: all 0.2s ease-in-out;
+
+   color: #fff;
+   font-size: 16px;
+   line-height: 48px;
+ 	border-radius: 3px;
+}
+#go-top a:hover { background: #165622; }
+

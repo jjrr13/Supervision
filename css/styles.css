@@ -1,0 +1,53 @@
+
+
+a:hover{
+	color: #D00003;
+}
+
+a:link{
+	color: #000000;
+	
+}
+
+a:visited{
+	color: #000000;
+}
+
+
+.alto{
+	height: 80px;
+	
+}
+
+.alto-medio{
+	height: 40px;
+}
+
+.alto-bajo{
+	height: 20px;
+}
+
+.alto-sm{
+	height: 10px;
+}
+
+
+.color1{
+	color: #ffffff;
+	background: #34495e;
+}
+
+.fondo{
+	background: #215A9A;
+	border-radius: 30px;
+}
+
+.right{
+	align-content: space-around;
+}
+
+.container header{
+	background: #000;
+	position: fixed !important;
+}
+
