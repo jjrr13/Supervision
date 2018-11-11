@@ -6,13 +6,14 @@
 
 
 
-	if ((isset($_POST['fecha_inicio']) && !empty($_POST['fecha_inicio']) ) &&
+	if ( (isset($_POST['nombre_proyecto']) && !empty($_POST['nombre_proyecto']) ) &&
+		(isset($_POST['fecha_inicio']) && !empty($_POST['fecha_inicio']) ) &&
 		(isset($_POST['visitor']) && !empty($_POST['visitor']) ) &&
 		(isset($_POST['supervisor']) && !empty($_POST['supervisor']) ) &&
 		(isset($_POST['dir_obra']) && !empty($_POST['dir_obra']) ) &&
 		(isset($_POST['resi_obra']) && !empty($_POST['resi_obra']) )
 	) {
-		$empresa_nombre = $_POST['empresa_nombre'];
+		$nombre_proyecto = $_POST['nombre_proyecto'];
 		$nit = $_POST['nit'];
 		$fecha_inicio= $_POST['fecha_inicio'];
 		$visitor= $_POST['visitor'];
@@ -23,9 +24,10 @@
 		
 		$sql ="INSERT INTO construc_user (Proyect_nomb, Proyect_nit_empre, Proyect_time_inic, Proyect_estado, Proyect_supervi_tect, Proyect_direcc_obra, Proyect_residen_obra, Proyect_inge_redacc)
 
-			VALUES ($empresa_nombre, nit, $fecha_inicio, 'Creado' $visitor, $supervisor, $dir_obra, $resi_obra )";
+			VALUES ($nombre_proyecto, nit, $fecha_inicio, 'Creado' $visitor, $supervisor, $dir_obra, $resi_obra )";
 	}else{
 		$msj="";
+		if (empty($_POST['nombre_proyecto'])) $msj.="error0=0&";
 		if (empty($_POST['fecha_inicio'])) $msj.="error1=1&";
 		if (empty($_POST['visitor'])) $msj.="error2=2&";
 		if (empty($_POST['supervisor'])) $msj.="error3=3&";

@@ -1,3 +1,7 @@
+/* ------------------------------------------------------------------ */
+/* start tooltip                                                      JJ
+/* ------------------------------------------------------------------ */
+
 /*div.form-group.has-error > .tooltip > .tooltip-inner {
     background-color: #F78B83;
     color: #912323;
@@ -20,6 +24,30 @@ div.form-group.has-error > .tooltip.bottom > .tooltip-arrow {
 div.form-group.has-error > .tooltip.left > .tooltip-arrow {
     border-left-color: #F78B83;
 }*/
+
+/* ------------------------------------------------------------------ */
+/* end tooltip                                                        JJ
+/* ------------------------------------------------------------------ */
+
+
+/* ------------------------------------------------------------------ */
+/* star cabecera                                                      JJ
+/* ------------------------------------------------------------------ */
+
+.cabeza div{
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.cabeza:first-child{
+  border-left: 1px solid #000;
+}
+.cabeza:last-child{
+  border-right: 1px solid #000;
+}
+/* ------------------------------------------------------------------ */
+/* end cabecera                                                       JJ
+/* ------------------------------------------------------------------ */
 
 .error{
   border: 2px solid #ff3636;
@@ -49,7 +77,7 @@ header{
 /* star Acordion                                                      JJ
 /* ------------------------------------------------------------------ */
 
-.accordion {
+/*.accordion {
     background-color: #eee;
     color: #444;
     cursor: pointer;
@@ -84,7 +112,7 @@ header{
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
-}
+}*/
 
 /* ------------------------------------------------------------------ */
 /* end Acordion                                                       JJ

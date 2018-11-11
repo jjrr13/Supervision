@@ -5,7 +5,7 @@
 		die('Falló mysqli_init');
 	}
 
-	if (!$mysqli->real_connect("localhost", "issei", "DAGtgbnhy65", "db727291449")) {
+	if (!$mysqli->real_connect("localhost", "issei", "DAGtgbnhy65", "informes")) {
 		die('Error de conexión (' . mysqli_connect_errno() . ') '
 				. mysqli_connect_error());
 	}

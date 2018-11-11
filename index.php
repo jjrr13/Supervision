@@ -17,18 +17,9 @@ require_once('cx/conexion.php');
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   
-  <!-- <script type="text/javascript" language="javascript" src="DataTables/jQuery-3.3.1/jquery-3.3.1.js"></script>
- 
-  <script type="text/javascript" language="javascript" src="DataTables/DataTables/js/jquery.dataTables.js"></script>
-  <link rel="stylesheet" type="text/css" href="DataTables/DataTables/css/jquery.dataTables.css" media="screen" /> -->
-
-<link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet"/>
-<script src="https://code.jquery.com/jquery-1.12.3.js"></script>
-<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-
-
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+  <script src="DataTables/jQuery-3.3.1/jquery-3.3.1.js"></script>
+  <link href="DataTables/DataTables/css/jquery.dataTables.min.css" rel="stylesheet"/>
+  <script src="DataTables/DataTables/js/jquery.dataTables.min.js"></script>
 
   <link rel="stylesheet" href="css/layout.css">
  
@@ -51,6 +42,9 @@ require_once('cx/conexion.php');
    border:solid 2px #000;
    border-radius: 5%;
   
+}
+#Jtabla_filter{
+  margin-bottom: 15px;
 }
 .caja_contadores>p{
    text-decoration: underline;
@@ -137,7 +131,7 @@ $(document).ready(function(){
               dato =table.row( this ).data();
               //console.log(dato + 'dentro al else');
               //console.log( table.row( this ).data() );
-              alert(dato[0]);
+              //alert(dato[0]);
               // parametro = dato.serialize();
 
 
@@ -178,7 +172,7 @@ $(document).ready(function(){
       </div>
   </header>
 
-<div class="container">
+<div class="container-fluid" style=" margin-left: 6%; margin-right: 6%; ">
  
 
   <!-- <?php echo $_POST['algo']; ?> -->
@@ -192,7 +186,7 @@ $(document).ready(function(){
   </div> -->
 
   <!-- <table class="table table-hover"> -->
-  <table id="Jtabla" cellpadding="0" cellspacing="0" border="0" class="display">
+  <table id="Jtabla" cellpadding="0" cellspacing="0" border="0" class="display" style="margin-bottom : 30px;">
    <thead>
     <tr class="gradeC" style="background: #ff3636; color: #ffffff;">
      <th  width="20%" align="left">NIT</th>
@@ -204,17 +198,17 @@ $(document).ready(function(){
    </thead>
    <tbody>
      <?php 
-     $query = $mysqli->query ("SELECT * FROM construc_empresa ORDER BY Empresa_nomb ASC");
+     $query = $mysqli->query ("SELECT * FROM empresa ORDER BY nombre ASC");
         while ( $valores = mysqli_fetch_array($query) ) {
           echo "<tr class='gradeA'>";
-            echo "<th>".$valores['Empresa_nit']."</th>";
-            echo "<th>".$valores['Empresa_nomb']."</th>";
-            echo "<th>".$valores['Empresa_tel']."</th>";
-            echo "<th>".$valores['Empresa_dir']."</th>";
-            if ($valores['Empresa_active'] == 'SI')
-              echo "<th >".$valores['Empresa_active']."</th>";
-            elseif ($valores['Empresa_active'] == 'NO')
-             echo "<th style='background-color: #ff4343;'>".$valores['Empresa_active']."</th>";
+            echo "<th>".$valores['nit']."</th>";
+            echo "<th>".$valores['nombre']."</th>";
+            echo "<th>".$valores['telefono']."</th>";
+            echo "<th>".$valores['direccion']."</th>";
+            if ($valores['estado'] == 'SI')
+              echo "<th >".$valores['estado']."</th>";
+            elseif ($valores['estado'] == 'NO')
+             echo "<th style='background-color: #ff4343;'>".$valores['estado']."</th>";
           echo "</tr>";
 
         } ?> 
@@ -224,7 +218,7 @@ $(document).ready(function(){
 
 
   <div class="form-group">
-    <?php $query = $mysqli->query ("SELECT COUNT(Empresa_nomb) AS cant_empre, (SELECT COUNT(Proyect_nomb) FROM construc_proyect) AS cant_proyect, (SELECT COUNT(Proyect_nomb) FROM construc_proyect WHERE Proyect_estado = 'Proceso') AS cant_proyect_on FROM construc_empresa");
+    <?php $query = $mysqli->query ("SELECT COUNT(nombre) AS cant_empre, (SELECT COUNT(nombre) FROM proyecto) AS cant_proyect, (SELECT COUNT(nombre) FROM proyecto WHERE estado = 'Proceso') AS cant_proyect_on FROM empresa");
           $fila = mysqli_fetch_assoc($query);
 
     ?>
@@ -264,42 +258,6 @@ $(document).ready(function(){
       <div id="cont3" class="numero"><script>contadores(<?php echo $fila['cant_proyect_on']; ?>, "cont3");</script></div>
     </div>
   </div>
-
-  <!-- <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">Planos</a></li>
-    <li><a data-toggle="tab" href="#menu1">Especificaciones</a></li>
-    <li><a data-toggle="tab" href="#menu2">Materiales</a></li>
-    <li><a data-toggle="tab" href="#menu3">Control de Calidad</a></li>
-    <li><a data-toggle="tab" href="#menu4">Control de Ejecusion</a></li>
-    <li><a data-toggle="tab" href="#menu5">Observaciones</a></li>
-  </ul>
-
-  <div class="tab-content">
-    <div id="home" class="tab-pane fade in active">
-      <h3>Planos</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </div>
-    <div id="menu1" class="tab-pane fade">
-      <h3>Especificaciones</h3>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-    <div id="menu2" class="tab-pane fade">
-      <h3>Materiales</h3>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-    </div>
-    <div id="menu3" class="tab-pane fade">
-      <h3>Control de Calidad</h3>
-      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-    </div>
-    <div id="menu4" class="tab-pane fade">
-      <h3>Control de Ejecusion</h3>
-      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-    </div>
-    <div id="menu5" class="tab-pane fade">
-      <h3>Observaciones</h3>
-      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-    </div>
-  </div> -->
 
 
     
