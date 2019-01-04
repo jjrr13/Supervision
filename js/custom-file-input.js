@@ -27,4 +27,4 @@
 				label.innerHTML = labelVal;
 		});
 	});
-}( document, window, 0 ));
+}( document, window, 0 ) );

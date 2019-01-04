@@ -1,0 +1,61 @@
+.cabeza th{
+  border-radius: 8px !important;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  border-right: 2px solid #000;
+  text-align: center;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+
+.cabeza th:first-child{
+  border-left: 1px solid #000;
+}
+
+.accordion {
+      background-color: #9b9090; color: #fff;
+      /*background-color: #eee;
+      color: #444;*/
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+      transition: 0.4s;
+      margin-bottom: 20px;
+  }
+  .collapse{
+      margin-bottom: 20px;
+  }
+
+   .accordion:hover {
+      background-color: #ccc;
+  }
+
+  .accordion:after {
+      font-family: 'Glyphicons Halflings';
+      content: '\e114';
+      color: #777;
+      font-weight: bold;
+      float: right;
+      margin-left: 5px;
+  }
+
+  /*.active:after {
+      content: "\e113";
+  }*/
+
+  .panel {
+      border: 1px solid #9b9090;
+      padding: 0 18px;
+      background-color: white;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+  }
+  /*con esto corregimo el problema de las flechitas no queden en todos los botones*/
+  .btn.collapsed:after {
+    content: "\e080";
+  }

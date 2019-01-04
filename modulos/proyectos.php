@@ -2,6 +2,10 @@
 
 require_once('../cx/conexion.php');
 
+unset($_SESSION['id_informe']);
+if (!empty($_POST['empresa_nombre'])) {
+  $_SESSION['empresa_nombre'] = $_POST['empresa_nombre'];
+}
  ?>
 
 <!DOCTYPE html>
@@ -13,104 +17,79 @@ require_once('../cx/conexion.php');
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- <link rel="stylesheet" href="../css/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-  
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-
-<!-- necesario para el modal -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <!-- necesario para el modal -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
   <link rel="stylesheet" href="../css/layout.css">
  
-<style>
-  td.filaseleccionada {
-      background-color: #A1B7D1;
-  }
+  <style>
+    td.filaseleccionada {
+        background-color: #A1B7D1;
+    }
 
-  .accordion {
-      background-color: #9b9090; color: #fff;
-      /*background-color: #eee;
-      color: #444;*/
-      cursor: pointer;
-      padding: 18px;
-      width: 100%;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 15px;
-      transition: 0.4s;
-  }
+    .accordion {
+        background-color: #9b9090; color: #fff;
+        /*background-color: #eee;
+        color: #444;*/
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+    }
 
-  .active, .accordion:hover {
-      background-color: #ccc;
-  }
+    .active, .accordion:hover {
+        background-color: #ccc;
+    }
 
-  .accordion:after {
-      font-family: 'Glyphicons Halflings';
-      content: '\e114';
-      color: #777;
-      font-weight: bold;
-      float: right;
-      margin-left: 5px;
-  }
+    .accordion:after {
+        font-family: 'Glyphicons Halflings';
+        content: '\e114';
+        color: #777;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+    }
 
-  .active:after {
-      content: "\e113";
-  }
+    .active:after {
+        content: "\e113";
+    }
 
-  .panel {
-      border: 1px solid #9b9090;
-      padding: 0 18px;
-      background-color: white;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.2s ease-out;
-  }
- 
-</style>
+    .panel {
+        border: 1px solid #9b9090;
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+   
+  </style>
 
 
-<script>
- 
-$(document).ready(function(){
+  <script>
+   
+    $(document).ready(function(){
 
-var tip= $('[data-title]').tooltip({
-      placement: 'top auto',
-      trigger: 'manual'
-    });
-        tip.tooltip( 'show');
-
-    
-    // $('input').on('change', function(){
-    //     var hasValue = $(this).val();
-    //     var $div = $(this).closest('div.form-group');
-                
-    //     if(hasValue){
-    //         $(this).one('hidden.bs.tooltip', function(){
-    //             $div.removeClass('has-error');
-    //         });
-    //     } else {
-    //         $div.addClass('has-error');
-    //     }
+    var tip= $('[data-title]').tooltip({
+          placement: 'top auto',
+          trigger: 'manual'
+        });
+            tip.tooltip( 'show');
         
-    //     $(this).tooltip(hasValue ? 'hide' : 'show');
-    // });
-    
-    window.setTimeout(function(){
-        $('input').trigger('change');
-    }, 1000);
-  
-  $('crear_Proyecto').click(function(){
+        window.setTimeout(function(){
+            $('input').trigger('change');
+        }, 1000);
+      
+      $('crear_Proyecto').click(function(){
 
-  });
-
-
-});
-
-  
- 
-</script>
+      });
+    });
+  </script>
 
 </head>
  <!--Header-->
@@ -126,7 +105,7 @@ var tip= $('[data-title]').tooltip({
  
 
 
-  <h2>Proyecto de la Empresa : <?php if (!empty($_POST['empresa_nombre'])) echo $_POST['empresa_nombre']; ?> </h2>
+  <h2>Empresa contratante: <?php echo $_SESSION['empresa_nombre']; ?> </h2>
   
   <div class="row col-md-12">
     <div class="col-md-6">
@@ -150,9 +129,13 @@ var tip= $('[data-title]').tooltip({
       $valor =$_POST['id_proyecto'];
       $result = $mysqli->query ("SELECT empresa_nit FROM proyecto WHERE id = '$valor' ");
       $fila =mysqli_fetch_assoc($result);
-      $nit2= $fila['empresa_nit'];
+      $_SESSION['empresa_nit']= $fila['empresa_nit'];
     }
-    $nit = (!empty($_POST['nit'])) ? $_POST['nit'] : $nit2 ;//validamos que haya llegado algun nit
+    if (isset($_POST['nit']) && !empty($_POST['nit'])) {
+      $_SESSION['empresa_nit']= $_POST['nit'];
+    }
+
+    $nit = $_SESSION['empresa_nit'];//validamos que haya llegado algun nit
 
      $result = $mysqli->query ("SELECT id, nombre, estado FROM proyecto WHERE empresa_nit = '$nit' ");
      $fila =mysqli_fetch_assoc($result);
@@ -187,8 +170,8 @@ var tip= $('[data-title]').tooltip({
   </div>
   <div class="row col-md-8">
     <div class="col-md-12">
-      <h2>Visitas al Proyecto</h2>
-      <p>Aqui ira cada una de las descripciones de las visitas y casos puntuales.</p>
+      <h2>Listado de proyectos</h2>
+      <!-- <p>Aqui ira cada una de las descripciones de las visitas y casos puntuales.</p> -->
 
       <?php 
 
@@ -199,6 +182,7 @@ var tip= $('[data-title]').tooltip({
 
          $result = $mysqli->query ("SELECT p.id, p.nombre, p.estado FROM proyecto AS p
            WHERE p.empresa_nit = '$nit' ");
+
          $x=0;
         while ( $valores = mysqli_fetch_array($result)) {
               $x=1;
@@ -232,6 +216,7 @@ var tip= $('[data-title]').tooltip({
                   $boton = '';
                   if ($estado_informe == "INCOMPLETO") {
                     $boton="<input type='hidden' name='id_proyecto' value='$id_proyecto'>
+                      <input type='hidden' name='nombre_proyecto' value='$nombre_proyecto'>
                       <button style='text-align: right; margin-top: -10px; background-color:#ff3636;' type='submit' class='btn btn-warning ' name='id_informe' value='$id_informe'><span class='glyphicon glyphicon-pencil'></span>. Terminar</button>"; 
                   }else{
                     $boton="<button disabled style='text-align: right; margin-top: -10px;' class='btn btn-success'><span class='glyphicon glyphicon-saved'></span> Completo</button>"; 
@@ -297,7 +282,7 @@ var tip= $('[data-title]').tooltip({
 
 
 
-  <!--------------------- inicio del modal para crear  ---------------------------->
+  <!-------------------- inicio del modal para crear  ---------------------------->
 
   <div class="modal fade" id="crearProyecto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -306,7 +291,7 @@ var tip= $('[data-title]').tooltip({
           <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
             <span aria-hidden="true" >&times;</span>
           </button>
-          <h4 class="modal-title" id="myModalLabel" style="text-align: center;">Crear un proyecto a la Empresa: <strong> <?php if (!empty($_POST['empresa_nombre'])) echo $_POST['empresa_nombre']; ?></strong></h4>
+          <h4 class="modal-title" id="myModalLabel" style="text-align: center;">Crear un proyecto a la Empresa: <strong> <?php echo $_SESSION['empresa_nombre']; ?></strong></h4>
         </div>
         <div class="modal-body">
           <p class="statusMsg"></p>
@@ -331,11 +316,11 @@ var tip= $('[data-title]').tooltip({
                     <select class="form-control col-lg-9 <?php echo $error; ?>" id="visitor" name="visitor" <?php if(isset($_GET['error3']) && $_GET['error3']==3) echo "class='error' data-title='Please enter a Visitor'"; ?> >
                       <option value="">SELECCIONAR</option>
                        <?php 
-                        $query = $mysqli -> query ("SELECT User_id AS id, CONCAT(User_nombre, ' ', User_apell) AS nombre FROM construc_user WHERE User_cargo = 'Ingeniero'");
+                        $query = $mysqli -> query ("SELECT u.id_usuario AS id, CONCAT(t.nombre, ' ', t.apellido) AS nombre FROM usuarios u
+                            INNER JOIN terceros t ON t.nit = u.nit
+                          WHERE `id_cargo` = 7");
                           while ($valores = mysqli_fetch_array($query)) {
-
-                            echo '<option value="'.$valores[id].'">'.$valores[nombre].'</option>';
-                        
+                            echo '<option value="'.$valores['id'].'">'.$valores['nombre'].'</option>';
                           } 
                        ?>
                     </select>
@@ -345,29 +330,24 @@ var tip= $('[data-title]').tooltip({
                     <select class="form-control col-lg-9 <?php echo $error; ?>" <?php if(isset($_GET['error3']) && $_GET['error3']==3) echo "class='error' data-title='Please enter a Supervisor'"; ?> id="supervisor" name="supervisor" >
                       <option value="">SELECCIONAR</option>
                        <?php 
-                        $query = $mysqli -> query ("SELECT User_id AS id, CONCAT(User_nombre, ' ', User_apell) AS nombre FROM construc_user WHERE User_cargo = 'Supervisor'");
+                        $query = $mysqli -> query ("SELECT u.id_usuario AS id, CONCAT(t.nombre, ' ', t.apellido) AS nombre FROM usuarios u
+                            INNER JOIN terceros t ON t.nit = u.nit
+                          WHERE `id_cargo` = 3");
                           while ($valores = mysqli_fetch_array($query)) {
 
-                            echo '<option value="'.$valores[id].'">'.$valores[nombre].'</option>';
+                            echo '<option value="'.$valores['id'].'">'.$valores['nombre'].'</option>';
                             
                           } 
                        ?>
                     </select>
                   </div>
-                  <div class="col-lg-6  form-group">
-                      <label for="dir_obra">Director de la Obra:</label>
-                      <input type="text" class="form-control <?php echo $error; ?>" <?php if(isset($_GET['error4']) && $_GET['error4']==4) echo "class='error' data-title='Please enter a Director'"; ?> id="dir_obra" name="dir_obra" />
-                  </div>
-                  <div class="col-lg-6  form-group">
-                      <label for="resi_obra">Residente de la Obra:</label>
-                      <input type="text" class="form-control <?php echo $error; ?>" <?php if(isset($_GET['error5']) && $_GET['error5']==5) echo "class='error' data-title='Please enter a value'"; ?> id="resi_obra" name="resi_obra" />
-                  </div>
+                  
                   <div class="col-lg-12 form-group">
                       <label for="contenido">Especificaciones Unicas</label>
-                      <textarea class="form-control" id="contenido" placeholder="Enter your message"></textarea>
+                      <textarea class="form-control" name="contenido" id="contenido" placeholder="Enter your message" >Algo aqui deberia de describir el proyecto</textarea>
                   </div>
                   <div class="col-lg-12 form-group">
-                      <input type="hidden" name="empresa_nombre" value="<?php if (!empty($_POST['empresa_nombre'])) echo $_POST['empresa_nombre']; ?>"/>
+                      <input type="hidden" name="empresa_nombre" value="<?php echo $_SESSION['empresa_nombre']; ?>"/>
                       <input type="hidden" name="nit" value="<?php if (!empty($_POST['nit'])) echo $_POST['nit']; ?>"/>
                       <button type="submit" id="crear_Proyecto" class="btn btn-primary btn-lg btn-block">Crear!</button>
                   </div>
