@@ -144,8 +144,15 @@ if (!empty($_POST['empresa_nombre'])) {
               $id_proyecto = $valores['id'];
               $nombre_proyecto = $valores['nombre'];
 
+              $disabled='';
+              $dato = '';
+              if ($valores['estado'] == 'TERMINADO') {
+                $disabled='disabled';
+                $dato = '(Bloqueado)';
+              }
+
               
-               echo "<button class='accordion'>".$nombre_proyecto."</button>";
+               echo "<button class='accordion'".$disabled." >".$nombre_proyecto." ".$dato."</button>";
                 echo "<div class='panel'>";
                   echo "<div class='row col-md-10'  style='margin-top:10px; margin-bottom:20px'>";
                     echo "<p style='font-size:18px;'>El estado del proyecto es: <strong>".$valores['estado']."</strong></p>";

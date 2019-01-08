@@ -30,7 +30,7 @@ require_once('../../../cx/conexion.php');
           </div>
       </div>
       <div align="right" style="color: #fff;">
-        <a href="../../cx/destroy_session.php">
+        <a href="../../../cx/destroy_session.php">
           Cerrar Session
            <span class="glyphicon glyphicon-off"></span>
         </a>

@@ -134,7 +134,7 @@
               <input type="text" name="observaciones_[0][0]" class="form-control"  value="obs 1.1">
             </div>
               <div id="masObservaciones_00" style="text-align: right; margin-right: 15px;">
-                <button id="masObservaciones_00"  type="button" class="btn btn-primary" onclick="getFormData2(this)"><span class='glyphicon glyphicon-less'></span>quitar</button>
+                <!-- <button id="masObservaciones_00"  type="button" class="btn btn-primary" onclick="getFormData2(this)"><span class='glyphicon glyphicon-less'></span>quitar</button> -->
                 <label class="control-label" style="">Agregar mas observaciones</label>
                 <button id="masObservaciones_00"  type="button" class="btn btn-success" onclick="crearObservacion(this)"><span class='glyphicon glyphicon-plus'></span></button>
               </div>

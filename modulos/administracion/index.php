@@ -57,7 +57,7 @@ require_once('../../cx/conexion.php');
 				<div class="col-md-1"></div>
 				<button type="submit"  formaction="actividad/activarProyectos.php" class="btn btn-primary col-md-4">Habilitar Proyectos</button>
 				<div class="col-md-2"></div>
-				<button type="submit" class="btn btn-primary col-md-4">Habilitar Informes</button>
+				<button type="submit" formaction="actividad/activarInformes.php" class="btn btn-primary col-md-4">Habilitar Informes</button>
 			</div>
 		</form>
   <!-- </div> -->

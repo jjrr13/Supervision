@@ -51,7 +51,8 @@ function getEjecuciones($id_informe)
   </table>";
 
       //// Registro fotográfico ///////////////////////////////////////// -->
-  $fotografias="";
+  $fotografias='<table cellpadding="1" border="1" style="text-align:center;" width="100%">';
+
     if (isset($result7) && $result7->num_rows > 0) {
           
       while ($valores7 = mysqli_fetch_array($result7)) {
@@ -72,15 +73,15 @@ function getEjecuciones($id_informe)
             
               $j=0;
 
-              $fotografias = '
-              <table cellpadding="1" border="1" style="text-align:center;" width="100%">
+              $fotografias .= '
+              
                 <tr nobr="true">
                   <th colspan="2"><h1>'.$valores7['titulo'].'</h1></th>
                 </tr>';
 
               while ($valores7_3 = mysqli_fetch_array($result7_3)) {
                 if ($j%2==0 || $result7_3->num_rows == 1) { 
-                  $fotografias.=''; 
+                  $fotografias.='<tr>'; 
                 }
                 $fotografias.=' 
                     

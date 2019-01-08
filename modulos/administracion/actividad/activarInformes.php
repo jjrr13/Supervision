@@ -48,26 +48,26 @@ require_once('../../../cx/conexion.php');
    function habilitar(elemento) {
     var valor ='';
      if($(elemento).prop('checked')){
-      valor='PROCESO';
+      valor='INCOMPLETO';
      }
      else{
-      valor='TERMINADO';
+      valor='COMPLETO';
      }
 
-     var datos = "nit="+$(elemento).val()+"&valor="+valor;
+     var datos = "id="+$(elemento).val()+"&valor="+valor;
      // alert(datos);
     $.ajax({
       type: "POST",
-      url: "../../../controllers/actualizarProyectos_controller.php",
+      url: "../../../controllers/actualizarInforme_controller.php",
       data: datos, //pasas los valores de la variable datos
       dataType:"html",
       success: function(data) 
       {
-        if (data == 1 && valor == 'TERMINADO') {
-          alert('Se Blouqeo el Proyecto SATISFACTORIAMENTE');
+        if (data == 1 && valor == 'COMPLETO') {
+          alert('Se Blouqeo el Informe SATISFACTORIAMENTE');
         }
-        else if (data == 1 && valor == 'PROCESO') {
-          alert('Se Deslouqeo el Proyecto SATISFACTORIAMENTE');
+        else if (data == 1 && valor == 'INCOMPLETO') {
+          alert('Se Deslouqeo el Informe SATISFACTORIAMENTE');
         }
         else  if (data == 2){
           alert('Tuvimos algun problema en el Proceso de Actualizacion');
@@ -97,43 +97,39 @@ require_once('../../../cx/conexion.php');
         <table id="Jtabla" cellpadding="1" cellspacing="0" border="0" class="table table-hover" style="margin-bottom : 30px;">
           <thead>
             <tr class="gradeC" style="background: #ff3636; color: #ffffff;">
-             <th  width="15%">NIT</th>
-             <th  width="35%">NOMBRE</th>
-             <th  width="30%">FECHA INICIAL</th>
-             <th  width="35%">FECHA FINAL</th> 
-             <th  width="35%">VISITOR</th> 
-             <th  width="35%">SUPERVISOR</th> 
-             <th  width="35%">CONTENIDO</th> 
+             <th  width="15%">NUMERO</th>
+             <th  width="30%">FECHA VISITA</th>
+             <th  width="35%">DIRECCTOR DE OBRA</th>
+             <th  width="35%">RESIDENTE DE OBRA</th> 
+             <th  width="35%">TIPO</th> 
              <th  width="5%">ESTADO</th>
             </tr>
           </thead>
           <tbody>
            <?php 
            // $query = $mysqli->query ("SELECT * FROM empresa ORDER BY nombre ASC");
-           $query = $mysqli->query ("SELECT * from proyecto");
+           $query = $mysqli->query ("SELECT * from informe");
             if ($query->num_rows >0) {
               while ( $valores = mysqli_fetch_array($query) ) {
                 echo "<tr class='gradeA'>";
-                  echo "<th>".$valores['empresa_nit']."</th>";
-                  echo "<th>".$valores['nombre']."</th>";
-                  echo "<th>".$valores['fecha_inicio']."</th>";
-                  echo "<th>".$valores['fecha_final']."</th>";
-                  echo "<th>".$valores['visitor']."</th>";
-                  echo "<th>".$valores['supervisor']."</th>";
-                  echo "<th>".$valores['contenido']."</th>";
-                  if ($valores['estado'] == 'PROCESO')
+                  echo "<th>".$valores['id']."</th>";
+                  echo "<th>".$valores['fecha_visita']."</th>";
+                  echo "<th>".$valores['director_obra']."</th>";
+                  echo "<th>".$valores['residente_obra']."</th>";
+                  echo "<th>".$valores['tipo_informe']."</th>";
+                  if ($valores['estado'] == 'INCOMPLETO')
                   echo "<th >
                         <div class='checkbox'>
                           <label>
-                            <input type='checkbox' onchange='habilitar(this);' value='".$valores['empresa_nit']."' checked data-toggle='toggle' data-on='Enabled' data-off='Disabled' data-onstyle='success' data-offstyle='danger'>
+                            <input type='checkbox' onchange='habilitar(this);' value='".$valores['id']."' checked data-toggle='toggle' data-on='Enabled' data-off='Disabled' data-onstyle='success' data-offstyle='danger'>
                           </label>
                         </div>
                        </th>";
-                  elseif ($valores['estado'] == 'TERMINADO')
+                  elseif ($valores['estado'] == 'COMPLETO')
                    echo "<th '>
                           <div class='checkbox'>
                             <label>
-                              <input type='checkbox' onchange='habilitar(this);' value='".$valores['empresa_nit']."' data-toggle='toggle' data-on='Enabled' data-off='Disabled' data-onstyle='success' data-offstyle='danger'>
+                              <input type='checkbox' onchange='habilitar(this);' value='".$valores['id']."' data-toggle='toggle' data-on='Enabled' data-off='Disabled' data-onstyle='success' data-offstyle='danger'>
                             </label>
                           </div>
                         </th>";

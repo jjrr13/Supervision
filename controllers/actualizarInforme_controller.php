@@ -5,13 +5,13 @@ $ruta="../";
 require_once("../cx/conexion.php"); 
 // scripts($ruta);
 	
-if( (isset($_POST['nit']) && !empty($_POST['nit'])) &&
+if( (isset($_POST['id']) && !empty($_POST['id'])) &&
 	(isset($_POST['valor']) && !empty($_POST['valor'])) ){
   
-    $nit = $_POST['nit'];
+    $id = $_POST['id'];
     $valor= $_POST['valor'];
 
-    $sql = "UPDATE proyecto SET estado = '$valor' WHERE empresa_nit= '$nit'";
+    $sql = "UPDATE informe SET estado = '$valor' WHERE id= '$id'";
 
 		$result = $mysqli->query($sql);
 
@@ -25,5 +25,3 @@ if( (isset($_POST['nit']) && !empty($_POST['nit'])) &&
 else{
 	echo 0;
 }
-
-

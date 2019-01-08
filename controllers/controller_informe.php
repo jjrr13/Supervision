@@ -223,6 +223,7 @@ else if (isset($_POST['formEjecucion']) && $_POST['formEjecucion']=5  ) {
 
               $tempPie = $_POST['pieFoto_'][$key][$key2][$key3] ;
 
+              
               $ruta = $ruta . basename($_FILES['file_']['name'][$key][$key2][$key3]);
               $fichero_subido = $baseRuta . $ruta;
               
