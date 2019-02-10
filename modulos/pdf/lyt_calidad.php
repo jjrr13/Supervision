@@ -42,7 +42,7 @@ function getCalidades($id_informe)
       }else {
         $calidad.='
         <tr nobr="true">
-          <th colspan="4">EN ESTE PERIODO NO HUBIERON PROCESOS DE CALIDAD</th>
+          <th colspan="4">EN ESTE PERIODO NO HUBO PROCESOS DE CALIDAD</th>
         </tr>';
       }
       $calidad.="

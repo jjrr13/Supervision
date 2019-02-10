@@ -1,4 +1,3 @@
-
 <?php
 require_once('../../cx/conexion.php');
 require_once '../../plugins/mpdf/vendor/autoload.php';
@@ -50,7 +49,7 @@ if ( isset($_POST['id_proyecto']) && !empty($_POST['id_proyecto']) &&
 						<meta charset="UTF-8">
 						<title>Informe</title>
 						
-						<script src="https://maxcdn.bo  3otstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+						<script src="https://maxcdn.bo3otstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 					</head>
 					<body>';
 		$id_proyecto = $_POST['id_proyecto'];
@@ -97,11 +96,11 @@ if ( isset($_POST['id_proyecto']) && !empty($_POST['id_proyecto']) &&
   $tituloInforme =  $_SESSION['empresa_nombre'];
   // -----------------------------------------------------------------------------
   $header='
-    <table border="1" cellpadding="3" align="center" width="100%" style="border-collapse: separate;">
+    <table border="1" cellpadding="3" align="center" width="100%" >
       
         <tr>
           <td rowspan="3" width="30%">
-            <img src="../../img/logo2.png" width="30%">
+            <img src="../../img/logo.png" width="30%">
           </td>
           <th width="40%">'.$tituloInforme.'</th>
           <td rowspan="3" width="30%">Informacion del informe <strong>Fecha de Creacion </strong>'.$fecha_registro.'</td>
@@ -146,4 +145,3 @@ scripts('../../');
 
 	confirmar('FALTO ALGUN DATO <br> INTENTA DE NUEVO...', 'fa fa-window-close', 'red', '../generar');
 }
-?>

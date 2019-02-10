@@ -1,5 +1,7 @@
 <?php 
 require_once('../../../cx/conexion.php');
+require_once('../../../js/globales.js');
+
  ?>
 
 <!DOCTYPE html>
@@ -31,7 +33,7 @@ require_once('../../../cx/conexion.php');
       </div>
       <div align="right" style="color: #fff;">
         <a href="../../../cx/destroy_session.php">
-          Cerrar Session
+          Cerrar sesión
            <span class="glyphicon glyphicon-off"></span>
         </a>
       </div>
@@ -64,22 +66,26 @@ require_once('../../../cx/conexion.php');
       success: function(data) 
       {
         if (data == 1 && valor == 'COMPLETO') {
-          alert('Se Blouqeo el Informe SATISFACTORIAMENTE');
+          confirmar('Se bloqueó el informe SATISFACTORIAMENTE', 'fa  fa-exclamation-triangle', 'orange', 'S');
+          // alert('Se bloqueo el informe SATISFACTORIAMENTE');
         }
         else if (data == 1 && valor == 'INCOMPLETO') {
-          alert('Se Deslouqeo el Informe SATISFACTORIAMENTE');
+          confirmar('Se deslqueó el informe SATISFACTORIAMENTE', 'fa fa-check-circle', 'green', 'S');
+          // alert('Se desbloqueo el informe SATISFACTORIAMENTE');
         }
         else  if (data == 2){
-          alert('Tuvimos algun problema en el Proceso de Actualizacion');
+          // confirmar('Tuvimos algún problema en el proceso de actualización', 'fa-window-close-o', 'red', 'S');
+          alert('Tuvimos algún problema en el proceso de actualización');
         }
         else {
-          alert('Falto algun dato necesario para la Actualizacion');
+          confirmar('Faltó algún dato necesario para la actualización', 'fa-window-close-o', 'red', 'S');
+          // alert('Faltó algún dato necesario para la actualización');
         }
       },
       error: function( jqXHR, textStatus, errorThrown ){
         //si la peticion falla aqui puedes saber alguna pista respecto al error 
         console.log(textStatus);
-        alert('ALGO SALIO MAL EN LA PETICIONS, INTENTA DE NUEVO');
+        alert('ALGO SALIO MAL EN LA PETICIONES, INTENTA DE NUEVO');
       },
 
       
@@ -99,7 +105,7 @@ require_once('../../../cx/conexion.php');
             <tr class="gradeC" style="background: #ff3636; color: #ffffff;">
              <th  width="15%">NUMERO</th>
              <th  width="30%">FECHA VISITA</th>
-             <th  width="35%">DIRECCTOR DE OBRA</th>
+             <th  width="35%">DIRECTOR DE OBRA</th>
              <th  width="35%">RESIDENTE DE OBRA</th> 
              <th  width="35%">TIPO</th> 
              <th  width="5%">ESTADO</th>
@@ -167,5 +173,12 @@ require_once('../../../cx/conexion.php');
     <a class="smoothscroll" title="Back to Top" href="#intro"><i class="icon-up-open"></i></a>
   </div>
 </footer> <!-- Footer End-->
+<link rel='stylesheet' href='../../../plugins/font-awesome/css/font-awesome.min.css'>
+<link rel='stylesheet' href='../../../plugins/demo/demo.css'>
+<link rel='stylesheet' type='text/css' href='../../../plugins/jquery-confirm.css'>
+<!-- Este SCRIPT ejecuta todos los alerts -->
+<script src='../../../plugins/demo/libs/bundled.js'></script>
+<script src='../../../plugins/demo/demo.js'></script>
+<script type='text/javascript' src='../../../plugins/jquery-confirm.js'></script>
 </body>
 </html>

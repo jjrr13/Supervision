@@ -47,7 +47,7 @@ function getEspecificaciones($id_informe)
       else {
        $especificaciones.='
           <tr nobr="true">
-            <th colspan="5">EN ESTE PERIODO NO HUBIERON ESPECIFICACIONES</th>
+            <th colspan="5">EN ESTE PERIODO NO HUBO ESPECIFICACIONES</th>
           </tr>';
       } 
     $especificaciones.="

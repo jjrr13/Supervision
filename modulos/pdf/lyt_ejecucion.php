@@ -43,7 +43,7 @@ function getEjecuciones($id_informe)
       }else {
         $actividades.='
         <tr nobr="true">
-          <th colspan="2">EN ESTE PERIODO NO HUBIERON PROCESOS DE ACTIVIDADES</th>
+          <th colspan="2">EN ESTE PERIODO NO HUBO PROCESOS DE ACTIVIDADES</th>
         </tr>';
       }
       $actividades.="
@@ -106,7 +106,7 @@ function getEjecuciones($id_informe)
             else{
               $fotografias.='
                 <tr nobr="true">
-                  <th colspan="2">EN ESTE PERIODO NO HUBIERON FOTOS EN LA ASIGNACION</th>
+                  <th colspan="2">EN ESTE PERIODO NO HUBO FOTOS EN LA ASIGNACION</th>
                 </tr>';
             }
 
@@ -123,7 +123,7 @@ function getEjecuciones($id_informe)
         else{
           $fotografias.='
             <tr nobr="true">
-              <th colspan="2">EN ESTE PERIODO NO HUBIERON OBSERVACIONES EN ESTE PROCESO</th>
+              <th colspan="2">EN ESTE PERIODO NO HUBO OBSERVACIONES EN ESTE PROCESO</th>
             </tr>
           </table>';
         }
@@ -132,7 +132,7 @@ function getEjecuciones($id_informe)
 
       $fotografias.='
         <tr nobr="true">
-          <th colspan="2">EN ESTE PERIODO NO HUBIERON REGISTROS FOTOGRAFICOS</th>
+          <th colspan="2">EN ESTE PERIODO NO HUBO REGISTROS FOTOGRAFICOS</th>
         </tr>
       </table>';
     } 
@@ -173,7 +173,7 @@ function getEjecuciones($id_informe)
         }else {
           $observaciones.='
             <tr nobr="true">
-              <th colspan="5">EN ESTE PERIODO NO HUBIERON OBSERVACIONES</th>
+              <th colspan="5">EN ESTE PERIODO NO HUBO OBSERVACIONES</th>
             </tr>';
         }
       $observaciones.="

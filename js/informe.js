@@ -19,7 +19,9 @@
          //si la peticion sale bien, aqui tendras los resultados que quieres
           // alert(data);
           if (data == 113) {
-            alert('Se guardaron los responsables SATISFACTORIAMENTE');
+            confirmar('Se guardaron los responsables SATISFACTORIAMENTE', 'fa fa-check-circle', 'green', 'S');
+
+            // alert('Se guardaron los responsables SATISFACTORIAMENTE');
             $('#dir_obra').attr("disabled", true);
             $('#resi_obra').attr("disabled", true);
             
@@ -97,7 +99,9 @@
       $('#'+documento+'eliminar').removeAttr('disabled');
     }else{
       //en caso de que el uno de los inputs este vacio
-      alert('La primer casilla y la Tercera no pueden ser VACIAS');
+      confirmar('La primer casilla y la tercera no pueden estar VACIAS', 'fa fa-window-close-o', 'red', 'S');
+
+      // alert('La primer casilla y la tercera no pueden estar VACIAS');
     }
   }
 
@@ -179,7 +183,9 @@
        $('#'+fecha2+'eliminar').removeAttr('disabled');
     }else{
         //en caso de que el uno de los inputs este vacio
-        alert('Falta rellenar algun campo. El 1ro y el 2do son Requeridos');
+        // alert('Falta rellenar algún campo. El 1ro y el 2do son requeridos');
+        confirmar('Falta rellenar algún campo. El 1ro y el 2do son requeridos', 'fa fa-window-close-o', 'red', 'S');
+
     }
   }
 
@@ -212,7 +218,9 @@
       $('#'+item+'eliminar').removeAttr('disabled');
     }else{
       //en caso de que el uno de los inputs este vacio
-      alert('Falta rellenar algun En el seguimiento de las Actividades');
+      // alert('Falta rellenar algún campo en el seguimiento de actividades');
+      confirmar('Falta rellenar algún campo en el seguimiento de actividades', 'fa fa-window-close-o', 'red', 'S');
+
     }
   }
   
@@ -243,14 +251,17 @@
        $('#'+item+'eliminar').removeAttr('disabled');
     }else{
         //en caso de que el uno de los inputs este vacio
-        alert('Falta rellenar algun campo En las Conclusiones');
+      // alert('Falta rellenar algún campo en las conclusiones');
+      confirmar('Falta rellenar algún campo en las conclusiones', 'fa fa-window-close-o', 'red', 'S');
+
+
     }
   }
 
   function getFormData(formId){
     let formValues = {};
     var id = $(this).attr('id');
-    alert(id);
+    // alert(id);
     var form1Inputs = document.forms[id].getElementsByTagName("input");
     for(let j=0; j<form1Inputs.length; j++){
           formValues[form1Inputs[j].name]=form1Inputs[j].value;
@@ -300,7 +311,9 @@
          $('#'+numeracion+'eliminar').removeAttr('disabled');
     }else{
         //en caso de que el uno de los inputs este vacio
-        alert('Falta rellenar algun campo en las Observaciones. Todos los campos son Obligatorios');
+      // alert('Falta rellenar algún campo en las observaciones. Todos los campos son obligatorios');
+      confirmar('Falta rellenar algún campo en las observaciones. Todos los campos son obligatorios', 'fa fa-window-close-o', 'red', 'S');
+
     }
   }
 
@@ -351,19 +364,19 @@
     nuevaObs +=    "<svg xmlns='http://www.w3.org/2000/svg' class='iborrainputfile' width='20' height='17' viewBox='0 0 20 17'><path d='M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z'></path></svg>";
     nuevaObs +=    "Seleccione Foto</strong>";
     nuevaObs +=    "</label>";
-    nuevaObs +=    "<div id='file_"+(contTitulo)+""+(numeroObs+1)+""+(numeroFoto)+"_0'>Previsualizacion...</div>";
+    nuevaObs +=    "<div id='file_"+(contTitulo)+""+(numeroObs+1)+""+(numeroFoto)+"_0'>Previsualización...</div>";
     nuevaObs +="</div>";
     nuevaObs +="</div>";
     nuevaObs +="</div>";
     nuevaObs +="<div id='masFotos_"+contTitulo+''+(numeroObs+1)+"' style='text-align: right; margin-right: 15px;'>";
-    nuevaObs +="<label class='control-label'>Agregar mas Fotos</label>";
+    nuevaObs +="<label class='control-label'>Agregar mas fotos</label>";
     nuevaObs +="<button id='masFotos_"+contTitulo+''+(numeroObs+1)+"'  type='button' class='btn btn-success' onclick='crearFoto()'><span class='glyphicon glyphicon-plus'></span></button>";
     nuevaObs +="</div>";
     nuevaObs +="<div class='col-md-12'>";
     nuevaObs +="<label for='observaciones_"+contTitulo+''+(numeroObs+1)+"' class='col-md-12 control-label' >Observaciones</label>";
     nuevaObs +="<input type='text' name='observaciones_["+(contTitulo)+"]["+(numeroObs+1)+"]' class='form-control' id='observaciones_"+contTitulo+''+(numeroObs+1)+"'>";
     nuevaObs +="<div id='masObservaciones_"+contTitulo+''+(numeroObs+1)+"' style='text-align: right; margin-right: 15px;'>";
-    nuevaObs +="<label class='control-label'>Agregar mas Contenido</label>";
+    nuevaObs +="<label class='control-label'>Agregar mas contenido</label>";
     nuevaObs +="<button id='masObservaciones_"+contTitulo+''+(numeroObs+1)+"'  type='button' class='btn btn-success' onclick='crearObservacion(this)'><span class='glyphicon glyphicon-plus'></span></button>";
     nuevaObs +="</div>";
 
@@ -391,7 +404,7 @@
     nuevoContenedor +="<div id='titulos_"+(contTitulo+1)+"' class='col-md-12' style='margin-bottom: 15px; border: 1px solid #ccc; padding-top: 15px; padding-bottom: 15px ;'>";
     nuevoContenedor +="<div class='col-md-12'>";
     nuevoContenedor +="<label for='titulo_"+(contTitulo+1)+"' class='col-md-9 control-label' >Agregue un titulo</label>";
-    nuevoContenedor +="<label id='masContenido_"+(contTitulo+1)+"' for='contenido' class='col-md-3 control-label masContenido_"+(contTitulo+1)+"' >Agregue un Contenido</label>";
+    nuevoContenedor +="<label id='masContenido_"+(contTitulo+1)+"' for='contenido' class='col-md-3 control-label masContenido_"+(contTitulo+1)+"' >Agregue un contenido</label>";
     nuevoContenedor +="<div class='col-md-10'>";
     nuevoContenedor +="<input type='text' id='titulo_"+(contTitulo+1)+"' name='titulo_["+(contTitulo+1)+"]' class='col-md-10 form-control'>";
     nuevoContenedor +="</div>";
@@ -405,24 +418,24 @@
     nuevoContenedor +=   "<input style='text-align: center;' type='text' name='pieFoto_["+(contTitulo+1)+"]["+(numeroObs)+"]["+(numeroFoto)+"]' class='form-control' placeholder='Ingrese Pie-Foto'>";
     nuevoContenedor +=    "<input type='file' name='file_["+(contTitulo+1)+"]["+(numeroObs)+"]["+(numeroFoto)+"]' id='file_"+(contTitulo+1)+(numeroObs)+""+numeroFoto+"' class='inputfile inputfile-7' onchange='visualiza(event);'>";
     nuevoContenedor +=    "<label for='file_"+(contTitulo+1)+(numeroObs)+""+numeroFoto+"'>";
-    nuevoContenedor +=    "<span class='iborrainputfile'>Ninguna Seleccion</span>'";
+    nuevoContenedor +=    "<span class='iborrainputfile'>Ninguna selección</span>'";
     nuevoContenedor +=    "<strong>";
     nuevoContenedor +=    "<svg xmlns='http://www.w3.org/2000/svg' class='iborrainputfile' width='20' height='17' viewBox='0 0 20 17'><path d='M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z'></path></svg>";
     nuevoContenedor +=    "Seleccione Foto</strong>";
     nuevoContenedor +=    "</label>";
-    nuevoContenedor +=    "<div id='file_"+(contTitulo+1)+""+(numeroObs)+""+(numeroFoto)+"_0'>Previsualizacion...</div>";
+    nuevoContenedor +=    "<div id='file_"+(contTitulo+1)+""+(numeroObs)+""+(numeroFoto)+"_0'>Previsualización...</div>";
     nuevoContenedor +="</div>";
     nuevoContenedor +="</div>";
     nuevoContenedor +="</div>";
     nuevoContenedor +="<div id='masFotos_"+(contTitulo+1)+''+(numeroObs)+"' style='text-align: right; margin-right: 15px;'>";
-    nuevoContenedor +="<label class='control-label'>Agregar mas Fotos</label>";
+    nuevoContenedor +="<label class='control-label'>Agregar mas fotos</label>";
     nuevoContenedor +="<button id='masFotos_"+(contTitulo+1)+''+(numeroObs)+"'  type='button' class='btn btn-success' onclick='crearFoto()'><span class='glyphicon glyphicon-plus'></span></button>";
     nuevoContenedor +="</div>";
     nuevoContenedor +="<div class='col-md-12'>";
     nuevoContenedor +="<label for='observaciones_"+(contTitulo+1)+''+(numeroObs)+"' class='col-md-12 control-label' >Observaciones</label>";
     nuevoContenedor +="<input type='text' name='observaciones_["+(contTitulo+1)+"]["+(numeroObs)+"]' class='form-control' id='observaciones_"+(contTitulo+1)+''+(numeroObs)+"'>";
     nuevoContenedor +="<div id='masObservaciones_"+(contTitulo+1)+''+(numeroObs)+"' style='text-align: right; margin-right: 15px;'>";
-    nuevoContenedor +="<label class='control-label'>Agregar mas Observaciones</label>";
+    nuevoContenedor +="<label class='control-label'>Agregar mas observaciones</label>";
     nuevoContenedor +="<button id='masObservaciones_"+(contTitulo+1)+''+(numeroObs)+"'  type='button' class='btn btn-success' onclick='crearObservacion()'><span class='glyphicon glyphicon-plus'></span></button>";
     nuevoContenedor +="</div>";
     nuevoContenedor +="</div>";
@@ -444,7 +457,7 @@
     var dejarBoton="";
       
     dejarBoton +="<div class='col-md-10'>";
-    dejarBoton +="<label for='contenido' class='col-md-3 control-label' >Agregue un Contenido</label>";
+    dejarBoton +="<label for='contenido' class='col-md-3 control-label' >Agregue un contenido</label>";
     dejarBoton +="</div>";
     dejarBoton +="<div class='col-md-2'>";
     dejarBoton +="<button id='masContenido_0'  type='submit' class='btn btn-success' onclick='creaarContenido()'><span class='glyphicon glyphicon-plus'></span></button>";

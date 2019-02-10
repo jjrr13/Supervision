@@ -49,15 +49,15 @@ require_once('../../cx/conexion.php');
 				<div class="col-md-1"></div>
 				<button type="submit" formaction="../usuarios/usuarios.php" class="btn btn-success col-md-4">Usuarios / Empresas</button>
 				<div class="col-md-2"></div>
-				<button type="submit" formaction="actividad/activarEmpresa.php" class="btn btn-primary col-md-4">Habilitar Empresas</button>
+				<button type="submit" formaction="actividad/activarEmpresa.php" class="btn btn-primary col-md-4">Habilitar empresas</button>
 			</div>
 			<div class="col-md-12 form-group"></div>
 			<div class="col-md-12 form-group"></div>
 			<div class="col-md-12">
 				<div class="col-md-1"></div>
-				<button type="submit"  formaction="actividad/activarProyectos.php" class="btn btn-primary col-md-4">Habilitar Proyectos</button>
+				<button type="submit"  formaction="actividad/activarProyectos.php" class="btn btn-primary col-md-4">Habilitar proyectos</button>
 				<div class="col-md-2"></div>
-				<button type="submit" formaction="actividad/activarInformes.php" class="btn btn-primary col-md-4">Habilitar Informes</button>
+				<button type="submit" formaction="actividad/activarInformes.php" class="btn btn-primary col-md-4">Habilitar informes</button>
 			</div>
 		</form>
   <!-- </div> -->

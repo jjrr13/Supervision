@@ -1,6 +1,7 @@
 <?php 
-
 require_once('../../cx/conexion.php');
+require_once('../../js/globales.js');
+
 
 unset($_SESSION['id_informe']);
 if (!empty($_POST['empresa_nombre'])) {
@@ -112,7 +113,8 @@ if (!empty($_POST['empresa_nombre'])) {
         $error =" error";
         echo  "<script>
                 $(document).ready(function(){
-                    alert('No tiene proyectos con esta empresa2222');
+                    //alert('No tiene proyectos con esta empresa');
+                    confirmar('No tiene proyectos con esta empresa', 'fa fa-window-close-o', 'red', 'S');
                     $('#crearProyecto').modal('show');
                     $('#advierte').removeAttr('hidden');
                 });
@@ -120,7 +122,8 @@ if (!empty($_POST['empresa_nombre'])) {
       }elseif ( $fila <= 0) {
         echo  "<script>
                 $(document).ready(function(){
-                    alert('No tiene proyectos con esta empresa');
+                    //alert('No tiene proyectos con esta empresa');
+                    confirmar('No tiene proyectos con esta empresa', 'fa fa-window-close-o', 'red', 'S');
                     $('#crearProyecto').modal('show');
                 });
               </script>";
@@ -203,7 +206,7 @@ if (!empty($_POST['empresa_nombre'])) {
             
               if($y==0){
                   echo "<div class='row col-md-12'>";
-                    echo "<p style='font-size: 26px;'>No hay Informes en el proyecto para Mostrar! </p>";
+                    echo "<p style='font-size: 26px;'>No hay informes en el proyecto para mostrar! </p>";
                   echo "</div>";
               }
             echo "</div>";
@@ -214,7 +217,7 @@ if (!empty($_POST['empresa_nombre'])) {
               
                 echo "<button class='accordion'>Section</button>";
                 echo "<div class='panel'>";
-                  echo  "<p style='font-size: 26px;'>No hay informacion para Mostrar! </p>";
+                  echo  "<p style='font-size: 26px;'>No hay información para mostrar! </p>";
                 echo "</div>";
             }
 
@@ -250,24 +253,24 @@ if (!empty($_POST['empresa_nombre'])) {
           <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
             <span aria-hidden="true" >&times;</span>
           </button>
-          <h4 class="modal-title" id="myModalLabel" style="text-align: center;">Crear un proyecto a la Empresa: <strong> <?php echo $_SESSION['empresa_nombre']; ?></strong></h4>
+          <h4 class="modal-title" id="myModalLabel" style="text-align: center;">Crear un proyecto a la empresa: <strong> <?php echo $_SESSION['empresa_nombre']; ?></strong></h4>
         </div>
         <div class="modal-body">
           <p class="statusMsg"></p>
               <form  action="../../controllers/proyecto_controller.php" method="POST">
                   <div id="advierte" class="col-lg-12  form-group" hidden="">
-                    <strong><p style="color: red;">Todos los Campos en Rojo son Necesarios (*)</p></strong>
+                    <strong><p style="color: red;">Todos los campos en rojo son necesarios (*)</p></strong>
                   </div>
                   <div class="col-lg-12  form-group">
                       <label for="nombre_proyecyo">Nombre del proyecto:</label>
                       <input type="text" class="form-control <?php echo $error; ?>" <?php if(isset($_GET['error0']) && $_GET['error0']==0) echo "data-title='Please enter a Name'"; ?> id="nombre" name="nombre_proyecto" placeholder="Titulo del proyecto"/>
                   </div>
                   <div class="col-lg-6  form-group">
-                      <label for="fecha_inicio">Fecha de Inicio:</label>
+                      <label for="fecha_inicio">Fecha de inicio:</label>
                       <input type="date" class="form-control <?php echo $error; ?>" <?php if(isset($_GET['error1']) && $_GET['error1']==1) echo "class='error' data-title='Please select a Date'"; ?> id="fecha_inicio" name="fecha_inicio"/>
                   </div>
                   <div class="col-lg-6  form-group">
-                      <label for="fecha_final">Fecha de Finalizacion:</label>
+                      <label for="fecha_final">Fecha de finalización:</label>
                       <input type="date" class="form-control " id="fecha_final" name="fecha_final" />
                   </div>
                   <div class="col-lg-6  form-group">
@@ -302,8 +305,8 @@ if (!empty($_POST['empresa_nombre'])) {
                   </div>
                   
                   <div class="col-lg-12 form-group">
-                      <label for="contenido">Especificaciones Unicas</label>
-                      <textarea class="form-control" name="contenido" id="contenido" placeholder="Enter your message" >Algo aqui deberia de describir el proyecto</textarea>
+                      <label for="contenido">Descripción del proyecto</label>
+                      <textarea class="form-control" name="contenido" id="contenido" placeholder="Enter your message" ></textarea>
                   </div>
                   <div class="col-lg-12 form-group">
                       <input type="hidden" name="empresa_nombre" value="<?php echo $_SESSION['empresa_nombre']; ?>"/>
@@ -342,7 +345,13 @@ if (!empty($_POST['empresa_nombre'])) {
       <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#intro"><i class="icon-up-open"></i></a></div>
 
    </footer> <!-- Footer End-->
-
+    <link rel='stylesheet' href='../../plugins/font-awesome/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='../../plugins/demo/demo.css'>
+    <link rel='stylesheet' type='text/css' href='../../plugins/jquery-confirm.css'>
+    <!-- Este SCRIPT ejecuta todos los alerts -->
+    <script src='../../plugins/demo/libs/bundled.js'></script>
+    <script src='../../plugins/demo/demo.js'></script>
+    <script type='text/javascript' src='../../plugins/jquery-confirm.js'></script>
 
 </body>
 </html>

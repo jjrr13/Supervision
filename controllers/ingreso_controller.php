@@ -51,33 +51,35 @@ if( (isset($_POST['usuario']) && !empty($_POST['usuario'])) &&
 						$_SESSION['empresa_nit'] = $fila['nit'];
 	        	$_SESSION['empresa_nombre'] = $filaUsuario['nombre'];
 	        	
-						header("location: ../modulos/generar/");
+						// header("Location: ../modulos/generar/");
+						confirmar('Bienvenido! <br>Esperamos que su experiencia sea buena, Consulte en Sistemas', 'fa fa-user-circle-o', 'green', '../modulos/generar/');
 					}
 					else if ($fila['id_tipo_usuario'] == "usuario") {
 	        		
-	        		$_SESSION['nombre_usuario'] = $filaUsuario['nombre'];
-
-							header("location: ../modulos/empresas/index.php");
+        		$_SESSION['nombre_usuario'] = $filaUsuario['nombre'];
+        		// header("location: ../modulos/empresas/index.php");
+						// header("Location: ../modulos/empresas/index.php");
+						confirmar('Bienvenido! <br>Actitud positiva', 'fa fa-user-circle-o', 'green', '../modulos/empresas/index.php');
 					}
 					else{
-						confirmar('Tuvimos algun problema en el proceso! <br>Por favor, Consulte en Sistemas', 'fa fa-user-circle-o', 'red', '../cx/destroy_session.php');
+						confirmar('Tuvimos algun problema en el proceso! <br>Por favor, Consulte en Sistemas', 'fa fa-window-close-o', 'red', '../cx/destroy_session.php');
 					}
 				}
 				else{
-					confirmar('Tuvimos problema al traer el nombre! <br>Por favor, Consulte en Sistemas', 'fa fa-user-circle-o', 'red', '../cx/destroy_session.php');
+					confirmar('Tuvimos problema al traer el nombre! <br>Por favor, Consulte en Sistemas', 'fa fa-window-close-o', 'red', '../cx/destroy_session.php');
 
 				}
 			}
 			else{
-				confirmar('El usuario se encuentra Bloqueado! <br>Por favor, Consulte a la Administración', 'fa fa-user-circle-o', 'red', '../cx/destroy_session.php');
+				confirmar('El usuario se encuentra Bloqueado! <br>Por favor, Consulte a la Administración', 'fa fa-window-close-o', 'red', '../cx/destroy_session.php');
 			}
 		}
 		else{
-			confirmar('Credenciales Incorrestras! <br>Por favor, Intente de nuevo', 'fa fa-user-circle-o', 'red', '../cx/destroy_session.php');
+			confirmar('Credenciales Incorrestras! <br>Por favor, Intente de nuevo', 'fa fa-window-close-o', 'red', '../cx/destroy_session.php');
 		}
 }
 else{
-	confirmar('Todos los campos son requeridos! <br>Por favor, Intente de nuevo', 'fa fa-user-circle-o', 'red', '../cx/destroy_session.php');
+	confirmar('Todos los campos son requeridos! <br>Por favor, Intente de nuevo', 'fa fa-window-close-o', 'red', '../cx/destroy_session.php');
 }
 
 

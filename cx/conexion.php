@@ -1,15 +1,15 @@
 <?php
 	//Proceso de conexion a la base de datos
-    /*$host = "db764174882.hosting-data.io";//
-    $user = "dbo764174882";
-    $pass = "DAGtgbnhy65";
-    $db = "db764174882";
-    */
+    // $host = "db764174882.hosting-data.io";//
+    // $user = "dbo764174882";
+    // $pass = "DAGtgbnhy65";
+    // $db = "db764174882";
+    
 	session_start();
       //If the variable does not exist, destroy the session
     if (empty($_SESSION['id_usuario'])) {
         if ((!isset($_POST['pass']) && empty($_POST['pass']))) {
-            header("location: http://localhost/Super/cx/destroy_session.php");
+            header("location: http://www.scesas.com/Super/cx/destroy_session.php");
         }
     }
 

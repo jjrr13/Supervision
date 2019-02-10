@@ -7,6 +7,7 @@
 
 		<script src="http://cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
 		<link href="css/login.css" rel="stylesheet" type="text/css">
+		
 		<script type="text/javascript">
 			function letras(campo){
 				campo.value=campo.value.toUpperCase();
@@ -14,7 +15,7 @@
 		</script>
 	</head>
 	<noscript>
-	    <meta http-equiv="Refresh" content="0;URL=http://localhost/issei/cx/destroy_session.php">
+	    <meta http-equiv="Refresh" content="0;URL=http://www.scesas.com/Super/cx/destroy_session.php">
 	</noscript>
 
 	<script type="text/javascript">
@@ -53,7 +54,7 @@
 	<body>
 		<form class="login" method="post" action="controllers/ingreso_controller.php">
 	    <h1 class="login-title">
-	    	<img src="img/logo2.png" width="100%">
+	    	<img src="img/logo.png" width="100%">
 	    </h1>
 	    <input type="text" class="login-input" placeholder="Usuario / Empresa" onChange="letras(this)" id="usuario" name="usuario" autofocus>
 	    <input type="password" id="pass" name="pass" class="login-input" placeholder="Password">

@@ -1,5 +1,7 @@
 <?php 
 require_once('../../../cx/conexion.php');
+require_once('../../../js/globales.js');
+
  ?>
 
 <!DOCTYPE html>
@@ -64,22 +66,30 @@ require_once('../../../cx/conexion.php');
       success: function(data) 
       {
         if (data == 1 && valor == 'TERMINADO') {
-          alert('Se Blouqeo el Proyecto SATISFACTORIAMENTE');
+          confirmar('Se bloqueó el proyecto SATISFACTORIAMENTE', 'fa  fa-exclamation-triangle', 'orange', 'S');
+
+          // alert('Se bloqueó el proyecto SATISFACTORIAMENTE');
         }
         else if (data == 1 && valor == 'PROCESO') {
-          alert('Se Deslouqeo el Proyecto SATISFACTORIAMENTE');
+
+          confirmar('Se deslqueó el proyecto SATISFACTORIAMENTE', 'fa fa-check-circle', 'green', 'S');
+
+          // alert('Se deslqueó el proyecto SATISFACTORIAMENTE');
         }
         else  if (data == 2){
-          alert('Tuvimos algun problema en el Proceso de Actualizacion');
+          confirmar('Tuvimos algún problema en el proceso de actualización', 'fa-window-close-o', 'red', 'S');
+          // alert('Tuvimos algun problema en el proceso de actualización');
         }
         else {
-          alert('Falto algun dato necesario para la Actualizacion');
+          confirmar('Faltó algún dato necesario para la actualización', 'fa-window-close-o', 'red', 'S');
+          
+          // alert('Faltó algún dato necesario para la actualización');
         }
       },
       error: function( jqXHR, textStatus, errorThrown ){
         //si la peticion falla aqui puedes saber alguna pista respecto al error 
         console.log(textStatus);
-        alert('ALGO SALIO MAL EN LA PETICIONS, INTENTA DE NUEVO');
+        alert('ALGO SALIO MAL EN LA PETICIONES, INTENTA DE NUEVO');
       },
 
       
@@ -171,5 +181,12 @@ require_once('../../../cx/conexion.php');
     <a class="smoothscroll" title="Back to Top" href="#intro"><i class="icon-up-open"></i></a>
   </div>
 </footer> <!-- Footer End-->
+<link rel='stylesheet' href='../../../plugins/font-awesome/css/font-awesome.min.css'>
+<link rel='stylesheet' href='../../../plugins/demo/demo.css'>
+<link rel='stylesheet' type='text/css' href='../../../plugins/jquery-confirm.css'>
+<!-- Este SCRIPT ejecuta todos los alerts -->
+<script src='../../../plugins/demo/libs/bundled.js'></script>
+<script src='../../../plugins/demo/demo.js'></script>
+<script type='text/javascript' src='../../../plugins/jquery-confirm.js'></script>
 </body>
 </html>

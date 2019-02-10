@@ -34,7 +34,7 @@ function getRecomendaciones($id_informe)
     }else {
       $recomendaciones.='
         <tr nobr="true">
-          <th colspan="2">EN ESTE PERIODO NO HUBIERON PROCESOS DE RECOMENDACIONES</th>
+          <th colspan="2">EN ESTE PERIODO NO HUBO PROCESOS DE RECOMENDACIONES</th>
         </tr>';
     }
     $recomendaciones.="

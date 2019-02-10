@@ -347,15 +347,16 @@ else if (isset($_POST['formConclusion']) && $_POST['formConclusion']=6  ) {
     }
   }
     $result9 = $mysqli->query($sql9);
+  scripts('../');
     if ($result9) {
       confirmar('CONCLUSIONES GUARDADAS...', 'fa fa-thumbs-o-up', 'green', '../modulos/informes/informe.php');
     }
     else{
       confirmar('ERROR AL GUARDAR CONCLUSIONES <br> INTENTA DE NUEVO...', 'fa fa-window-close', 'red', '../modulos/informes/informe.php');
     }
-  scripts('../');
 }
 else if (isset($_POST['finalizar']) && $_POST['finalizar']=13  ) {
+  scripts('../');
   $sql10= "UPDATE informe SET estado = 'COMPLETO' WHERE id = $id_informe";
 
   $result10 = $mysqli->query($sql10);
@@ -366,7 +367,6 @@ else if (isset($_POST['finalizar']) && $_POST['finalizar']=13  ) {
   else{
     confirmar('ERROR AL FINALIZAR EL REPORTE <br> INTENTA DE NUEVO...', 'fa fa-window-close', 'red', '../modulos/proyectos.php');
   }
-  scripts('../');
 }
 else if (isset($_POST['director']) && !empty($_POST['director']) &&
     isset($_POST['residente']) && !empty($_POST['residente'])) {

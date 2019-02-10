@@ -198,7 +198,7 @@ require_once('../../cx/conexion.php');
               <button class="btn btn-danger col-md-4" type="submit" name="submit" id="submit" >Crear</button>
             </div>
             <div class="col-md-6">              
-              <button class="btn btn-default col-md-4" type="submit" id="cancelar" name="cancelar" value="9" formaction="../../functions/routes.php">cancelar</button>
+              <button class="btn btn-default col-md-4" type="submit" id="cancelar" name="cancelar" value="9" formaction="../usuarios/usuarios.php">cancelar</button>
             </div>
           </div>
           <div class="form-group col-md-12 "></div>

@@ -46,7 +46,7 @@ function getPlanos($id_informe)
       }else {
       $planos.='
           <tr nobr="true">
-            <th colspan="5">EN ESTE PERIODO NO HUBIERON PLANOS</th>
+            <th colspan="5">EN ESTE PERIODO NO HUBO PLANOS</th>
           </tr>';
        }
     $planos.="

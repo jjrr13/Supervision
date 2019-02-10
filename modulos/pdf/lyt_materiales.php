@@ -41,7 +41,7 @@ function getMateriales($id_informe)
       else {
         $materiales.='
         <tr nobr="true">
-          <th colspan="4">EN ESTE PERIODO NO HUBIERON MATERIALES</th>
+          <th colspan="4">EN ESTE PERIODO NO HUBO MATERIALES</th>
         </tr>';
       }
     $materiales.="

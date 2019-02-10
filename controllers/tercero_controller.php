@@ -48,7 +48,7 @@
 	      confirmar('CREADO SATISFACTORIAMENTE EL TERCERO Y EL USUARIO', 'fa fa-thumbs-o-up', 'green', '../modulos/usuarios/usuarios.php');
 	    }
 	    else{
-      	confirmar('ERROR AL CREAR EL USUARIP <br> CONSULTE DTO SISTEMAS', 'fa fa-window-close', 'red', 'S');
+      	confirmar('ERROR AL CREAR EL USUARIO <br> CONSULTE DTO SISTEMAS', 'fa fa-window-close', 'red', 'S');
       	echo $sql2;
 	    }
 	  }

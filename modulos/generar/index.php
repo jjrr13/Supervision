@@ -130,7 +130,18 @@ require_once('../../cx/conexion.php');
       <div class="row">
 
          <div class="twelve columns">            
-
+            <ul class="copyright" style="color: #ccc;">
+              <li>Celular: </li>
+              <li>318 329 11 68</li>          
+            </ul>
+            <ul class="copyright" style="color: #ccc;">
+               <li>Direccion: </li>
+               <li>Carrera 27 # 2A - 30 Oficina 04</li>          
+            </ul>
+            <ul class="copyright" style="color: #ccc;">
+               <li>Barrio: </li>
+               <li>San Fernando</li>          
+            </ul>
             <ul class="copyright">
                <li>Copyright 2018 &copy; Computer Services</li>
                <li>Design by <a title="By: srJJ" href="http://www.styleshout.com/">srJJ</a></li>          

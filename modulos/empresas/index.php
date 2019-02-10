@@ -1,6 +1,6 @@
 <?php 
-
 require_once('../../cx/conexion.php');
+require_once('../../js/globales.js');
 
 // $sql="SELECT * FROM construc_empresa"
 // if ($_SESSION['usuario']) {
@@ -17,7 +17,12 @@ require_once('../../cx/conexion.php');
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   
-  <script src="../../plugins/DataTables/jQuery-3.3.1/jquery-3.3.1.js"></script>
+  <!-- <script src="../../plugins/DataTables/jQuery-3.3.1/jquery-3.3.1.js"></script> -->
+
+  <script src='../../plugins/demo/libs/bundled.js'></script>
+  <!-- <script src='../../plugins/demo/demo.js'></script>
+  <script type='text/javascript' src='../../plugins/jquery-confirm.js'></script> -->
+
   <link href="../../plugins/DataTables/DataTables/css/jquery.dataTables.min.css" rel="stylesheet"/>
   <script src="../../plugins/DataTables/DataTables/js/jquery.dataTables.min.js"></script>
 
@@ -132,7 +137,9 @@ require_once('../../cx/conexion.php');
                  '</form>').appendTo('body').submit();
             }
           }else{
-            alert( 'La Empresa '+nombre+ ' se encuentra Desactivada');
+            // alert( 'La empresa '+nombre+ ' se encuentra DESACTIVADA');
+          confirmar('La empresa '+nombre+ ' se encuentra DESACTIVADA', 'fa fa-window-close-o', 'red', 'S');
+
           }
       } );
          
@@ -198,8 +205,8 @@ require_once('../../cx/conexion.php');
     <tr class="gradeC" style="background: #ff3636; color: #ffffff;">
      <th  width="20%" align="left">NIT</th>
      <th  width="40%" align="left">NOMBRE</th>
-     <th  width="20%" align="left">TELEFONO</th>
-     <th  width="20%" align="left">DIRECCION</th> 
+     <th  width="20%" align="left">TELÉFONO</th>
+     <th  width="20%" align="left">DIRECCIÓN</th> 
      <th  width="20%" align="left">ESTADO</th>
     </tr>
    </thead>
@@ -253,21 +260,21 @@ require_once('../../cx/conexion.php');
 
   </script>
     <div class="caja_contadores derecho" >
-      <p><span>Total de Empresas</span></p>
+      <p><span>Total de empresas</span></p>
       <div id="cont1" class="numero">
         <script>contadores(<?php echo $fila['cant_empre']; ?>, "cont1");
         </script>
       </div>
     </div>
     <div  class="caja_contadores" >
-      <p><span>Total de Proyectos</span></p>
+      <p><span>Total de proyectos</span></p>
       <div id="cont2" class="numero">
         <script>contadores(<?php echo $fila['cant_proyect']; ?>, "cont2");
         </script>
       </div>
     </div>
     <div class="caja_contadores">
-      <p><span>Proyectos Activos</span></p>
+      <p><span>Proyectos activos</span></p>
       <div id="cont3" class="numero">
         <script>contadores(<?php echo $fila['cant_proyect_on']; ?>, "cont3");
         </script>
@@ -299,7 +306,14 @@ require_once('../../cx/conexion.php');
       <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#intro"><i class="icon-up-open"></i></a></div>
 
    </footer> <!-- Footer End-->
+  <link rel='stylesheet' href='../../plugins/font-awesome/css/font-awesome.min.css'>
+  <link rel='stylesheet' href='../../plugins/demo/demo.css'>
+  <link rel='stylesheet' type='text/css' href='../../plugins/jquery-confirm.css'>
+  <!-- Este SCRIPT ejecuta todos los alerts -->
+  <!-- <script src='../../plugins/demo/libs/bundled.js'></script> -->
+  <script src='../../plugins/demo/demo.js'></script>
+  <script type='text/javascript' src='../../plugins/jquery-confirm.js'></script>
 
-
+  <!--  -->
 </body>
 </html>
